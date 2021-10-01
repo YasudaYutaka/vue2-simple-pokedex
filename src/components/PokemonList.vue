@@ -29,11 +29,12 @@ export default {
     };
   },
   created() {
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=151&offset=0")
-      .then((response) => response.json())
-      .then((json) => {
-        this.pokemonList = json;
-      });
+    // fetch("https://pokeapi.co/api/v2/pokemon?limit=151&offset=0")
+    //   .then((response) => response.json())
+    //   .then((json) => {
+    //     this.pokemonList = json;
+    //   });
+    this.regionSort('kanto');
   },
   methods: {
     regionSort(region) {
