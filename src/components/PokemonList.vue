@@ -2,29 +2,8 @@
   <v-container class="my-md-10 mt-xs-5">
 
     <v-row class="mb-10" wrap row justify-space-around>
-      <v-col cols="4" sm="2" class="text-center">
-        <v-btn small color="blue" dark @click="regionSort('kanto')">Kanto</v-btn>
-      </v-col>
-      <v-col cols="4" sm="2" class="text-center">
-        <v-btn small color="blue" dark @click="regionSort('johto')">Johto</v-btn>
-      </v-col>
-      <v-col cols="4" sm="2" class="text-center">
-        <v-btn small color="blue" dark @click="regionSort('hoenn')">Hoenn</v-btn>
-      </v-col>
-      <v-col cols="4" sm="2" class="text-center">
-        <v-btn small color="blue" dark @click="regionSort('sinnoh')">Sinnoh</v-btn>
-      </v-col>
-      <v-col cols="4" sm="2" class="text-center">
-        <v-btn small color="blue" dark @click="regionSort('unova')">Unova</v-btn>
-      </v-col>
-      <v-col cols="4" sm="2" class="text-center">
-        <v-btn small color="blue" dark @click="regionSort('kalos')">Kalos</v-btn>
-      </v-col>
-      <v-col cols="4" sm="2" class="text-center">
-        <v-btn small color="blue" dark @click="regionSort('alola')">Alola</v-btn>
-      </v-col>
-      <v-col cols="4" sm="2" class="text-center">
-        <v-btn small color="blue" dark @click="regionSort('galar')">Galar</v-btn>
+      <v-col cols="4" sm="2" class="text-center" v-for="region in pokemonRegions" :key="region">
+        <v-btn small color="blue" dark @click="regionSort(region)">{{firstLetterUpperCase(region)}}</v-btn>
       </v-col>
     </v-row>
 
@@ -46,6 +25,7 @@ export default {
     return {
       pokemonList: [],
       pokemonNumber: 0,
+      pokemonRegions: ['kanto', 'johto', 'hoenn', 'sinnoh', 'unova', 'kalos', 'alola', 'galar'],
     };
   },
   created() {
